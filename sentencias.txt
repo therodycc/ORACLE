@@ -1,0 +1,70 @@
+--select max(Last_name) "Apellido mas largo", min(Last_name)" Apellido mas corto"  from hr.employees
+
+--select *from hr.employees
+--select *from hr.jobs
+--select *from hr.departments
+
+--select to_char(salary,'$99999.99') as "SALARIO SEMANAL" from hr.employees where SALARY between 700 and 3000
+
+
+--SELECT first_name NOMBRE, job_title TRABAJO FROM hr.employees NATURAL JOIN hr.jobs order by job_title
+
+--7
+--select SUBSTR(First_name,1,1)||' '|| Last_name EMPLEADO, JOB_TITLE TRABAJO, MIN_SALARY||'-'||MAX_SALARY "SALARY RANGE", SALARY 
+--FROM hr.employees NATURAL JOIN hr.jobs 
+
+
+
+
+--8
+--select SUBSTR(First_name,1,1)||' '|| Last_name Empleado,  DEPARTMENT_NAME " NOMBRE DEL DEPARTAMENTO" 
+--FROM hr.employees NATURAL JOIN hr.departments
+
+--9
+
+--10
+
+
+
+
+/*SELECT last_name,
+DECODE(MANAGER_ID,
+NULL ,
+'anybody')
+AS "Work for"
+FROM HR.EMPLOYEES*/
+
+
+
+select SUBSTR(First_name,1,1)||' '|| Last_name Empleado ,
+DECODE(MANAGER_ID,null, 'ANYBODY','SOMEBODY') "WORKS FOR"
+FROM hr.employees
+
+
+
+
+
+
+
+/*ERROR
+SELECT SUBSTR(first_name,1,1)||' '||last_name "Employee Name", salary "Salary",
+DECODE(COMMISSION_PCT  NULL, 'No','Yes') AS Commission
+FROM HR.employees;*/
+
+/*select SUBSTR(First_name,1,1)||' '|| Last_name Empleado,  SALARY ,
+DECODE(COMMISSION_PCT,null, 'NO','YES') COMISION
+
+FROM hr.employees 
+
+*/
+
+
+/*
+
+SELECT SUBSTR(first_name,1, 1) || ' ' || last_name as EMPLEADO, 
+        SALARY SALARIO,
+        (CASE WHEN commission_pct IS NULL THEN 'No' ELSE 'Yes' END) as COMISION
+FROM hr.employees;
+
+
+*/
